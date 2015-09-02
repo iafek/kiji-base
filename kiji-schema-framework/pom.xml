@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--
+    (c) Copyright 2012 WibiData, Inc.
+
+    See the NOTICE file distributed with this work for additional
+    information regarding copyright ownership.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.kiji.schema</groupId>
+  <artifactId>kiji-schema-framework</artifactId>
+  <version>1.7.0</version>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.kiji.pom</groupId>
+    <artifactId>root-pom</artifactId>
+    <version>1.7.0</version>
+  </parent>
+
+  <name>KijiSchema top-level project</name>
+  <description>A schema management layer for Apache HBase</description>
+  <inceptionYear>2012</inceptionYear>
+
+  <properties>
+    <kiji-checkin.version>1.7.0</kiji-checkin.version>
+    <kiji-platforms.version>1.7.0</kiji-platforms.version>
+    <fake-hbase.version>1.7.0</fake-hbase.version>
+    <kiji-annotations.version>1.7.0</kiji-annotations.version>
+    <kiji-delegation.version>1.7.0</kiji-delegation.version>
+    <kiji-common-flags.version>1.7.0</kiji-common-flags.version>
+    <kiji-commons.version>1.7.0</kiji-commons.version>
+
+    <!--<bento-maven-plugin.version>1.7.0</bento-maven-plugin.version>-->
+  </properties>
+
+  <modules>
+    <module>build-resources</module>
+    <module>platform-api</module>
+    <module>cdh5-bridge</module>
+    <module>cdh5-4-bridge</module>
+    <module>kiji-schema</module>
+    <module>profiling</module>
+    <module>kiji-schema-extras</module>
+    <module>kiji-schema-archetype</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!--<plugin>-->
+          <!--<groupId>org.kiji.maven.plugins</groupId>-->
+          <!--<artifactId>bento-maven-plugin</artifactId>-->
+          <!--<version>${bento-maven-plugin.version}</version>-->
+          <!--<executions>-->
+            <!--<execution>-->
+              <!--<goals>-->
+                <!--<goal>start</goal>-->
+                <!--<goal>stop</goal>-->
+              <!--</goals>-->
+            <!--</execution>-->
+          <!--</executions>-->
+          <!--<configuration>-->
+            <!--<bento.pypi.repository>http://pypi.wibidata.net/simple</bento.pypi.repository>-->
+          <!--</configuration>-->
+        <!--</plugin>-->
+
+        <plugin>
+          <!-- must supply build-resources module with checkstyle/checkstyle.xml
+               and suppressions.xml to use this -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>org.kiji.schema</groupId>
+              <artifactId>build-resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <!-- must supply build-resources module with findbugs/includeFilter.xml
+               and excludeFilter.xml to use this -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>org.kiji.schema</groupId>
+              <artifactId>build-resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.kiji.annotations</groupId>
+        <artifactId>annotations</artifactId>
+        <version>${kiji-annotations.version}</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.kiji.checkin</groupId>
+        <artifactId>kiji-checkin</artifactId>
+        <version>${kiji-checkin.version}</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.kiji.common</groupId>
+        <artifactId>kiji-common-flags</artifactId>
+        <version>${kiji-common-flags.version}</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.kiji.commons</groupId>
+        <artifactId>kiji-commons-java</artifactId>
+        <version>${kiji-commons.version}</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.kiji.delegation</groupId>
+        <artifactId>kiji-delegation</artifactId>
+        <version>${kiji-delegation.version}</version>
+        <scope>compile</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>kiji-repos</id>
+      <name>kiji-repos</name>
+      <url>https://repo.wibidata.com/artifactory/kiji</url>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:git:git@github.com:kijiproject/kiji-schema.git</connection>
+    <url>scm:git:git@github.com:kijiproject/kiji-schema.git</url>
+    <developerConnection>scm:git:git@github.com:kijiproject/kiji-schema.git</developerConnection>
+  </scm>
+
+</project>
