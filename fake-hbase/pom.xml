@@ -95,18 +95,4 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>kiji-repos</id>
-      <name>kiji-repos</name>
-      <url>https://repo.wibidata.com/artifactory/kiji</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
-
 </project>

@@ -62,7 +62,7 @@
     <dependency>
       <groupId>org.kiji.delegation</groupId>
       <artifactId>kiji-delegation</artifactId>
-      <version>1.1.2-SNAPSHOT</version>
+      <version>1.7.0</version>
       <scope>compile</scope>
     </dependency>
 
@@ -78,44 +78,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <distributionManagement>
-    <repository>
-      <id>kiji-maven</id>
-      <name>kiji-maven-releases</name>
-      <url>https://repo.wibidata.com/artifactory/kiji-packages</url>
-    </repository>
-    <snapshotRepository>
-      <id>kiji-maven</id>
-      <name>kiji-maven-snapshots</name>
-      <url>https://repo.wibidata.com/artifactory/kiji-packages</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <repositories>
-    <repository>
-      <id>kiji-repos</id>
-      <name>kiji-repos</name>
-      <url>https://repo.wibidata.com/artifactory/kiji</url>
-    </repository>
-  </repositories>
-
-  <profiles>
-    <profile>
-      <id>kiji-nightly</id>
-      <distributionManagement>
-        <repository>
-          <id>kiji-nightly</id>
-          <name>kiji-nightly-releases</name>
-          <url>https://repo.wibidata.com/artifactory/kiji-nightly</url>
-        </repository>
-        <snapshotRepository>
-          <id>kiji-nightly</id>
-          <name>kiji-nightly-snapshots</name>
-          <url>https://repo.wibidata.com/artifactory/kiji-nightly</url>
-        </snapshotRepository>
-      </distributionManagement>
-    </profile>
-  </profiles>
 
 </project>

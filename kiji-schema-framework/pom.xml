@@ -52,6 +52,7 @@
     <module>platform-api</module>
     <module>cdh5-bridge</module>
     <module>cdh5-4-bridge</module>
+    <module>kiji-checkin</module>
     <module>kiji-schema</module>
     <module>profiling</module>
     <module>kiji-schema-extras</module>
