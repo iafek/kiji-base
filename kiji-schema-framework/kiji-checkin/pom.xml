@@ -89,7 +89,7 @@
     <dependency>
       <groupId>org.kiji.common</groupId>
       <artifactId>kiji-common-flags</artifactId>
-      <version>1.1.1-SNAPSHOT</version>
+      <version>1.7.0</version>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
